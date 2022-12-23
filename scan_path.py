@@ -23,6 +23,8 @@ def get_hash(path):
 
 def add_to_set(path):
     hash = get_hash(path)
+    if os.path.islink(path):
+        return
     if hash not in files_set:
         files_set[hash] = path
     else:
